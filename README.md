@@ -80,3 +80,6 @@
 - **データベース**: PostgreSQL
 - **インフラ**: Render
 - **追加技術**: Google Maps API（地図表示）、Google Analytics（ユーザー行動分析）、Google Places API（全国のサウナ施設を一覧で表示）
+
+## 画面遷移図
+https://www.figma.com/file/lAmXCWpxhGY2y1cFBpHQSD/Project?type=whiteboard&node-id=0%3A1&t=if5wTgrGaLy36wQB-1
