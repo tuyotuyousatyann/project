@@ -1,0 +1,78 @@
+@startuml
+!define Table(name,desc) class name as "desc" << (T,#FFAAAA) >>
+!define PrimaryKey(x) <u>x</u>
+!define ForeignKey(x) <color:blue>x</color>
+
+' テーマの定義
+skinparam class {
+    BackgroundColor White
+    BorderColor Black
+    ArrowColor Black
+}
+
+' ユーザーテーブル
+Table(users, "users") {
+    PrimaryKey(id) : integer 
+    name : string
+    email : string
+    crypted_password : string
+    salt : string
+    created_at : datetime
+    updated_at : datetime
+}
+
+' サウナ施設テーブル
+Table(saunas, "saunas") {
+    PrimaryKey(id) : integer
+    name : string
+    address : string
+    latitude : decimal
+    longitude : decimal
+    rating : float
+    opening_hours : string
+    tel_number : string
+    place_id : string
+    photo_reference : string
+    sauna_temperature : float
+    water_bath_temperature : float
+    region : string
+    gender_policy : string
+    access_type : string
+    sauna_type : string
+    water_bath_type : string
+    extra_features : string
+    payment_options : string
+    created_at : datetime
+    updated_at : datetime
+}
+
+' お気に入りテーブル
+Table(favorites, "favorites") {
+    PrimaryKey(id) : integer
+    ForeignKey(user_id) : integer
+    ForeignKey(sauna_id) : integer
+    created_at : datetime
+    updated_at : datetime
+}
+
+' サ活記録テーブル
+Table(sauna_activities, "sauna activities") {
+    PrimaryKey(id) : integer
+    ForeignKey(user_id) : integer
+    ForeignKey(sauna_id) : integer
+    visit_date : date
+    rating : float
+    comment : string
+    description : string
+    image : string
+    created_at : datetime
+    updated_at : datetime
+}
+
+' リレーションの定義
+users --|{ favorites : has
+users --|{ sauna_activities : has
+saunas --|{ favorites : listed
+saunas --|{ sauna_activities : listed
+
+@enduml
