@@ -37,9 +37,9 @@ Table(saunas, "saunas") {
     water_bath_temperature : float
     region : string
     gender_policy : string
-    access_type : string
-    sauna_type : string
-    water_bath_type : string
+    use : string
+    sauna : string
+    water_bath : string
     extra_features : string
     payment_options : string
     created_at : datetime
